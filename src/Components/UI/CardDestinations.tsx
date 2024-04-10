@@ -9,7 +9,7 @@ function CardDestinations() {
       >
         <div className="flex flex-col justify-between h-full p-8">
           <div className="">
-            <p className="border-2 border-black inline-block rounded-xl px-2 py-1 bg-white">
+            <p className="border-2 inline-block rounded-xl px-2 py-1 bg-tertiary">
               Cusco
             </p>
           </div>
