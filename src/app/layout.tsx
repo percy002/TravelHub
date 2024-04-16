@@ -1,10 +1,35 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import {
+  Roboto,
+  Pacifico,
+  Roboto_Condensed,
+  Playfair_Display,
+} from "next/font/google";
 import "./globals.css";
 import NavbarFB from "@/Components/Menu/NavbarFB";
 import FooterFB from "@/Components/Footer/FooterFB";
+import { ApolloWrapper } from "@/lib/apollo-provider";
 
-const inter = Inter({ subsets: ["latin"] });
+const roboto = Roboto({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-roboto",
+  display: "swap",
+});
+const pacifico = Playfair_Display({
+  weight: "400",
+  subsets: ["latin"],
+  style: "italic",
+  variable: "--font-pacifico",
+  display: "swap",
+});
+
+const robotoCondensed = Roboto_Condensed({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-roboto-condensed",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,12 +42,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <NavbarFB/>
-        {children}
-        <FooterFB/>
-      </body>
+    <html
+      lang="en"
+      className={`${roboto.className} ${pacifico.variable} ${robotoCondensed.variable}`}
+    >
+      <ApolloWrapper>
+        <body className={roboto.className}>
+          <NavbarFB />
+          {children}
+          <FooterFB />
+        </body>
+      </ApolloWrapper>
     </html>
   );
 }
