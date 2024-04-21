@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import {
   Roboto,
-  Pacifico,
+  Montserrat,
   Roboto_Condensed,
   Playfair_Display,
 } from "next/font/google";
@@ -16,11 +16,10 @@ const roboto = Roboto({
   variable: "--font-roboto",
   display: "swap",
 });
-const pacifico = Playfair_Display({
-  weight: "400",
+const pacifico = Montserrat({
+  weight: ["400", "700","900"],
   subsets: ["latin"],
-  style: "italic",
-  variable: "--font-pacifico",
+  variable: "--font-titles",
   display: "swap",
 });
 

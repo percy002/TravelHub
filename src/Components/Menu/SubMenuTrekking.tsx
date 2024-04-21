@@ -2,16 +2,13 @@ import { FaArrowRight } from "react-icons/fa";
 import OptionsSubMenu from "./OptionsSubMenu";
 import { useEffect, useState } from "react";
 import { SubMenuItem } from "./models";
+import Link from "next/link";
 interface Props {
   subMenuItems: SubMenuItem[];
   title: string;
 }
 const SubMenuTrekking = ({ subMenuItems, title }: Props) => {
   const [optionsTrekking, setOptionsTrekking] = useState<string[]>();
-
-  const HandleClick = () => {
-    setOptionsTrekking(["Camino Inca 2 Dias", "Camino Inca 4 Dias"]);
-  };
 
   return (
     <div className="w-[100vw] px-6 mt-14">
@@ -24,13 +21,18 @@ const SubMenuTrekking = ({ subMenuItems, title }: Props) => {
           <ul className="flex flex-col gap-4 text-base">
             {subMenuItems &&
               subMenuItems.map((subMenuItem) => (
-                <li
+                <Link
+                  href={`${subMenuItem.path.toLowerCase()}`}
                   key={subMenuItem.id}
-                  className="cursor-pointer flex justify-between items-center p-3 border-b border-gray-200 group"
                 >
-                  {subMenuItem.label}{" "}
-                  <FaArrowRight className="text-primary hidden group-hover:block" />
-                </li>
+                  <li
+                    key={subMenuItem.id}
+                    className="cursor-pointer flex justify-between items-center p-3 border-b border-gray-200 group"
+                  >
+                    {subMenuItem.label}{" "}
+                    <FaArrowRight className="text-primary hidden group-hover:block" />
+                  </li>
+                </Link>
               ))}
             <li className="cursor-pointer flex justify-between items-center p-3 border-b border-gray-200 group text-primary">
               Ver todos los tours a {title}
@@ -54,7 +56,7 @@ const SubMenuTrekking = ({ subMenuItems, title }: Props) => {
         </div>
         <div className="col-span-1 p-5 flex justify-center">
           <img
-            src="images/tours/inkatrail.jpg"
+            src="./images/tours/inkatrail.jpg"
             className="w-8/12 rounded-lg"
             alt="image sub menu"
           />

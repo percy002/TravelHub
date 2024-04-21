@@ -6,24 +6,25 @@ body {
 }
 
 h1,h2,h3 {
-  font-family: var(--font-pacifico);
+  font-family: var(--font-titles);
   margin-top: 0.3rem;
   margin-bottom: 0.3rem;
+  font-weight: 900;
 }
 h1 {
-  font-size: 2.5em;
+  font-size: 1.75rem;
 }
 h2 {
-  font-size: 2em;
+  font-size: 1.5rem;
 }
 h3 {
-  font-size: 1.75em;
+  font-size: 1.25rem;
 }
 h4 {
-  font-size: 1.5em;
+  font-size: 1rem;
 }
 h5 {
-  font-size: 1.25em;
+  font-size: 0.75rem;
 }
 @media (min-width: 768px) {
   .md\:space-x-8 > :not([hidden]) ~ :not([hidden]) {
@@ -34,4 +35,9 @@ h5 {
 
 .popover_custom{
   transform: translate(0px, 135px) !important;
+}
+
+.child-p-0 span{
+  padding-top: 0.1rem !important;
+  padding-bottom: 0.1rem !important;
 }

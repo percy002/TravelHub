@@ -46,6 +46,7 @@ const menuQuery = gql`
             nodes {
               id
               label
+              path
             }
           }
         }
@@ -84,6 +85,7 @@ function NavbarFB() {
                 <li>
                   <Link href="/" className="border-r-2 border-black pr-4">
                     Blog de Viajes
+                    
                   </Link>
                 </li>
                 <li>

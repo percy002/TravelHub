@@ -3,7 +3,7 @@ import CardDestinations from "../UI/CardDestinations";
 
 const OurDestinations = () => {
   return (
-    <section className="container mx-auto">
+    <section className="container mx-auto sm:px-8">
       <div className="mt-32">
         <h2 className="text-center font-semibold text-5xl my-3">
           Experiencias Únicas
@@ -20,7 +20,7 @@ const OurDestinations = () => {
           </p>
         </div>
       </div>
-      <div className="flex flex-col md:flex-row md:gap-4 mt-20">
+      <div className="flex flex-col lg:flex-row md:gap-4 mt-20">
         <CardDestinations/>
         <CardDestinations/>
         <CardDestinations/>

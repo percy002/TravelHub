@@ -15,6 +15,7 @@ export interface MenuItems {
 export interface MenuItem {
   id: string;
   label: string;
+  path: string;
   childItems: SubMenuItems;
 }
 
@@ -25,4 +26,5 @@ export interface SubMenuItems {
 export interface SubMenuItem {
   id: string;
   label: string;
+  path: string;
 }
