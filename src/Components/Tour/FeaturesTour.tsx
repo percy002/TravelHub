@@ -19,28 +19,28 @@ const FeaturesTour = ({ featureTour, accomodationAndGroup }: Props) => {
           </a>
         </div>
         <div className="flex-grow grid grid-cols-4">
-          <div className="flex justify-center items-center gap-1">
+          <div className="flex justify-center items-center gap-2">
             <BiHotel className="h-10 w-10 text-primary" />
             <div className="col-span-1 flex flex-col justify-center text-gray-600">
               <span className="text-base font-semibold">{accomodationAndGroup.accommodation}</span>
               <span className="text-sm">Alojamiento</span>
             </div>
           </div>
-          <div className="flex justify-center items-center gap-1">
+          <div className="flex justify-center items-center gap-2">
             <TiGroupOutline  className="h-10 w-10 text-primary" />
             <div className="col-span-1 flex flex-col justify-center text-gray-600">
               <span className="text-base font-semibold">{accomodationAndGroup.groupSize}</span>
               <span className="text-sm">Tamaño del Grupo</span>
             </div>
           </div>
-          <div className="flex justify-center items-center gap-1">
+          <div className="flex justify-center items-center gap-2">
             <PiMountainsLight  className="h-10 w-10 text-primary" />
             <div className="col-span-1 flex flex-col justify-center text-gray-600">
               <span className="text-base font-semibold">{featureTour.maxaltitude} msnm</span>
               <span className="text-sm">Altitud Maxima</span>
             </div>
           </div>
-          <div className="flex justify-center items-center gap-1">
+          <div className="flex justify-center items-center gap-2">
             <PiChartLineUpThin className="h-10 w-10 text-primary" />
             <div className="col-span-1 flex flex-col justify-center text-gray-600">
               <span className="text-base font-semibold">{featureTour.difficulty}</span>
@@ -49,7 +49,7 @@ const FeaturesTour = ({ featureTour, accomodationAndGroup }: Props) => {
           </div>
           
         </div>
-        <div className="p-5 flex items-center justify-center hidden lg:flex lg:justify-center lg:items-center">
+        <div className="p-5 items-center justify-center hidden lg:flex lg:justify-center lg:items-center">
           <a href="" className="bg-gray-700 text-white p-2 text-center">
             Descargar Folleto
           </a>

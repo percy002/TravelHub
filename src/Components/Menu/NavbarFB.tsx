@@ -74,8 +74,8 @@ function NavbarFB() {
         <div className="flex flex-wrap justify-between container mx-auto pt-3 pb-2">
           <Link href="/">
             <img
-              src="/images/logo/logo_color.jpg"
-              className="h-[4.5rem]"
+              src="/images/logo/logo_trip_alpaca_black.png"
+              className="h-[5.5rem]"
               alt="Logo"
             />
           </Link>

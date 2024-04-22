@@ -56,7 +56,7 @@ const SubMenuTrekking = ({ subMenuItems, title }: Props) => {
         </div>
         <div className="col-span-1 p-5 flex justify-center">
           <img
-            src="./images/tours/inkatrail.jpg"
+            src="/images/tours/inkatrail.jpg"
             className="w-8/12 rounded-lg"
             alt="image sub menu"
           />

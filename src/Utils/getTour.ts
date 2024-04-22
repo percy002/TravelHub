@@ -32,6 +32,32 @@ const query = gql`
           accommodation
           groupSize
         }
+        introduction {
+          introductionContent {
+            secondaryTitle
+            content
+          }
+          map {
+            node {
+              sourceUrl
+            }
+          }
+        }
+        tourInfo {
+          overview
+          itineraryContent {
+            day1 {
+              titulo
+              theBestOfTheDay
+              content
+              image1 {
+                node {
+                  sourceUrl
+                }
+              }
+            }
+          }
+        }
       }
       language {
         slug
