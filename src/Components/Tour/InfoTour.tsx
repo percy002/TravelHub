@@ -8,7 +8,7 @@ interface Props {
   tourInfo: TourInfo;
 }
 const InfoTour = ({ tourInfo }: Props) => {
-    console.log(tourInfo);
+    // console.log(tourInfo);
     
   return (
     <section className="mt-8 container mx-auto">

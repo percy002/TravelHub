@@ -75,7 +75,7 @@ const Page = async ({ params }: { params: any }) => {
   try {
     data = await getTourBySlug(slug);
     tourInfo = data.tour.tours.tourInfo;
-    console.log(data.tour.tours.introduction);
+    // console.log(data.tour.tours.introduction);
     
   } catch (error) {
     console.error("Error obteniendo la gira por título:", error);
