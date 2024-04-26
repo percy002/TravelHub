@@ -37,3 +37,5 @@ next-env.d.ts
 
 # ignore Notas.txt in public directory
 public/Notas.txt
+
+*.zip
