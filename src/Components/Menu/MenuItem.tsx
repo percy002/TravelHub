@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { Button, Navbar, Popover } from "flowbite-react";
 import React, { useEffect, useMemo, useState } from "react";
 import { BiCaretDown } from "react-icons/bi";
@@ -18,14 +18,22 @@ const PopoverCustomTheme = {
 };
 function MenuItem({ menuItem }: Props) {
   const [nodes, setNodes] = useState(menuItem.childItems.nodes);
+  const [openPopover, setOpenPopover] = useState(false);
   useEffect(() => {
-    setNodes(menuItem.childItems.nodes);    
+    setNodes(menuItem.childItems.nodes);
   }, [menuItem]);
 
   const subMenuComponent = useMemo(() => {
-    return <SubMenuTrekking subMenuItems={menuItem.childItems.nodes} title={menuItem.label} />;
+    return (
+      <SubMenuTrekking
+        subMenuItems={menuItem.childItems.nodes}
+        title={menuItem.label}
+        updateOpenPopover={setOpenPopover}
+        openPopover={openPopover}
+      />
+    );
   }, [menuItem.childItems.nodes, menuItem.label]);
-
+  
   if (nodes.length > 0) {
     return (
       <Popover
@@ -33,6 +41,8 @@ function MenuItem({ menuItem }: Props) {
         content={subMenuComponent}
         trigger="click"
         theme={PopoverCustomTheme}
+        onOpenChange={setOpenPopover}
+        open={openPopover}
       >
         <Button className="bg-transparent text-white border-none enabled:hover:bg-transparent focus:ring-0">
           <span className="flex items-center text-sm md:text-base whitespace-nowrap">

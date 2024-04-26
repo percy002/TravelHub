@@ -6,10 +6,11 @@ import Link from "next/link";
 interface Props {
   subMenuItems: SubMenuItem[];
   title: string;
+  updateOpenPopover?: any;
+  openPopover?: boolean;
 }
-const SubMenuTrekking = ({ subMenuItems, title }: Props) => {
-  const [optionsTrekking, setOptionsTrekking] = useState<string[]>();
-
+const SubMenuTrekking = ({ subMenuItems, title, updateOpenPopover, openPopover }: Props) => {
+  const [optionsTrekking, setOptionsTrekking] = useState<string[]>(); 
   return (
     <div className="w-[100vw] px-6 mt-14">
       <div className="grid grid-cols-3 gap-3">
@@ -24,6 +25,7 @@ const SubMenuTrekking = ({ subMenuItems, title }: Props) => {
                 <Link
                   href={`${subMenuItem.path.toLowerCase()}`}
                   key={subMenuItem.id}
+                  onClick={() => updateOpenPopover(openPopover)}
                 >
                   <li
                     key={subMenuItem.id}
