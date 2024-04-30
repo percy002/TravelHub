@@ -8,11 +8,11 @@ import { gql } from "@apollo/client";
 import { useEffect, useState } from "react";
 import { MenuItems } from "./models";
 import MenuItem from "./MenuItem";
-import { HiPhone } from "react-icons/hi";
+import { HiPhone, HiMail } from "react-icons/hi";
 
 const CustomNavbar = {
   root: {
-    base: "bg-white px-2 dark:border-gray-700 dark:bg-gray-800 sm:px-4",
+    base: "bg-white px-2 sm:px-4",
     inner: {
       base: "mx-auto flex flex-wrap items-center justify-center",
       fluid: {
@@ -20,6 +20,18 @@ const CustomNavbar = {
         off: "container",
       },
     },
+  },
+  collapse: {
+    base: "w-full lg:block lg:w-auto",
+    list: "mt-4 flex flex-col lg:mt-0 lg:flex-row lg:space-x-8 lg:text-base lg:font-xl",
+    hidden: {
+      on: "hidden",
+      off: "",
+    },
+  },
+  toggle: {
+    base: "inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 lg:hidden",
+    icon: "h-6 w-6 shrink-0",
   },
   link: {
     active: {
@@ -65,7 +77,6 @@ function NavbarFB() {
     }
   }, [data]);
 
-
   return (
     <div
       className={`fixed top-0 w-full z-50 px-30 ${robotoCondensed.className}`}
@@ -85,7 +96,6 @@ function NavbarFB() {
                 <li>
                   <Link href="/" className="border-r-2 border-black pr-4">
                     Blog de Viajes
-                    
                   </Link>
                 </li>
                 <li>
@@ -114,22 +124,31 @@ function NavbarFB() {
         </div>
       </div>
       <Navbar
-        className={`${robotoCondensed.className} bg-black`}
+        className={`${robotoCondensed.className} bg-black `}
         theme={CustomNavbar}
       >
-        <Navbar.Brand as={Link} href="/" className="lg:hidden">
+        <Navbar.Brand as={"div"} className="lg:hidden flex-grow justify-between">
+          <Link href="/">
             <img
-              src="/images/logo/logo_color.jpg"
+              src="/images/logo/logo_blanco.png"
               className="h-[4.5rem]"
               alt="Logo"
             />
-          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-            Flowbite React
-          </span>
-        </Navbar.Brand>
-        <Navbar.Toggle className="md:block lg:hidden" />
+          </Link>
 
-        <Navbar.Collapse className="md:hidden lg:block">
+          <div className="lg:hidden flex gap-3 items-center">
+            <span className="text-2xl md:text-lg font-bold text-gray-700">ENG</span>
+            <div className="pl-2 border-l border-gray-700">
+              <HiPhone className="text-3xl md:text-lg text-gray-700  " />
+            </div>
+            <div className="px-2 border-l border-gray-700">
+              <HiMail className="text-3xl md:text-lg text-gray-700" />
+            </div>
+          </div>
+        </Navbar.Brand>
+        <Navbar.Toggle className="" />
+
+        <Navbar.Collapse className="">
           {menuItems?.nodes.map((menuItem) => (
             <MenuItem menuItem={menuItem} key={menuItem.id} />
           ))}

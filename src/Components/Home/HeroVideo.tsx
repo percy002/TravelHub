@@ -4,7 +4,7 @@ const HeroVideo = () => {
   return (
     <div className="relative h-0 pb-[56.25%] transform -z-20">
       <iframe
-        className="absolute inset-0 w-full h-full border-0 transform scale-125"
+        className="absolute inset-0 w-full h-full border-0 transform"
         src="//www.youtube.com/embed/NkJUx2fJZ6s?wmode=transparent&autoplay=1&controls=0&showinfo=0&rel=0&enablejsapi=1&loop=1&playlist=NkJUx2fJZ6s&mute=1"
         title="Trip Alpaca Adventure"
         allowFullScreen

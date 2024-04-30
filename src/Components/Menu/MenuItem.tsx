@@ -16,6 +16,12 @@ const PopoverCustomTheme = {
     placement: "-4px",
   },
 };
+
+const ButtonCustomTheme = {
+  size: {
+    xs: "px-0 py-1 xl:px-2 text-xs",
+  },
+};
 function MenuItem({ menuItem }: Props) {
   const [nodes, setNodes] = useState(menuItem.childItems.nodes);
   const [openPopover, setOpenPopover] = useState(false);
@@ -33,7 +39,7 @@ function MenuItem({ menuItem }: Props) {
       />
     );
   }, [menuItem.childItems.nodes, menuItem.label]);
-  
+
   if (nodes.length > 0) {
     return (
       <Popover
@@ -44,7 +50,11 @@ function MenuItem({ menuItem }: Props) {
         onOpenChange={setOpenPopover}
         open={openPopover}
       >
-        <Button className="bg-transparent text-white border-none enabled:hover:bg-transparent focus:ring-0">
+        <Button
+          theme={ButtonCustomTheme}
+          size={"xs"}
+          className="bg-transparent text-white border-none enabled:hover:bg-transparent focus:ring-0"
+        >
           <span className="flex items-center text-sm md:text-base whitespace-nowrap">
             {menuItem.label} <BiCaretDown className="ml-2" />
           </span>
