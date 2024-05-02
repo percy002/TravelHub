@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 import { MenuItems } from "./models";
 import MenuItem from "./MenuItem";
 import { HiPhone, HiMail } from "react-icons/hi";
+import { Accordion } from "flowbite-react";
+import MenuItemMobile from "./MenuItemMobile";
 
 const CustomNavbar = {
   root: {
@@ -68,6 +70,7 @@ const menuQuery = gql`
 `;
 function NavbarFB() {
   const [menuItems, setMenuItems] = useState<MenuItems>();
+  const [windowWidth, setWindowWidth] = useState(0);
 
   const data: any = useSuspenseQuery(menuQuery).data;
 
@@ -76,6 +79,17 @@ function NavbarFB() {
       setMenuItems(data.menu.menuItems);
     }
   }, [data]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <div
@@ -127,7 +141,10 @@ function NavbarFB() {
         className={`${robotoCondensed.className} bg-black `}
         theme={CustomNavbar}
       >
-        <Navbar.Brand as={"div"} className="lg:hidden flex-grow justify-between">
+        <Navbar.Brand
+          as={"div"}
+          className="lg:hidden flex-grow justify-between"
+        >
           <Link href="/">
             <img
               src="/images/logo/logo_blanco.png"
@@ -137,22 +154,30 @@ function NavbarFB() {
           </Link>
 
           <div className="lg:hidden flex gap-3 items-center">
-            <span className="text-2xl md:text-lg font-bold text-gray-700">ENG</span>
+            <span className="text-xl md:text-lg font-bold text-gray-700">
+              ENG
+            </span>
             <div className="pl-2 border-l border-gray-700">
-              <HiPhone className="text-3xl md:text-lg text-gray-700  " />
+              <HiPhone className="text-2xl md:text-lg text-primary  " />
             </div>
             <div className="px-2 border-l border-gray-700">
-              <HiMail className="text-3xl md:text-lg text-gray-700" />
+              <HiMail className="text-2xl md:text-lg text-primary" />
             </div>
           </div>
         </Navbar.Brand>
         <Navbar.Toggle className="" />
 
-        <Navbar.Collapse className="">
-          {menuItems?.nodes.map((menuItem) => (
-            <MenuItem menuItem={menuItem} key={menuItem.id} />
-          ))}
-        </Navbar.Collapse>
+        {windowWidth > 1024 ? (
+          <Navbar.Collapse className="">
+            {menuItems?.nodes.map((menuItem) => (
+              <MenuItem menuItem={menuItem} key={menuItem.id} />
+            ))}
+          </Navbar.Collapse>
+        ) : (
+          <Navbar.Collapse className="">
+              <MenuItemMobile menuItem={menuItems?.nodes}/>            
+          </Navbar.Collapse>
+        )}
       </Navbar>
     </div>
   );
